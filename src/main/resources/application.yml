@@ -1,0 +1,8 @@
+server:
+    port: 8880
+
+spring:
+  application:
+    name: i18n
+  messages:
+    basename: i18n/msg

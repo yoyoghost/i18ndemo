@@ -1,0 +1,20 @@
+
+各个locale所代表的的国家代码
+https://www.viralpatel.net/java-locale-list-tutorial/
+
+国际化的主要技术点是获取当前所需要展示的语言。
+
+根据jdk提供的语言包我们可以获取语言或者国家信息
+Locale locale = RequestContextUtils.getLocale(request);
+log.info("locale is {}", locale);
+
+然后根据locale来去获取响应语言的消息或者提示即可
+
+1. properties 但是需要动态实时加载，需要一定的技术成本，国家越多，需要创建的properties文件就越多
+msg_cn_ZH.properties
+msg_en_US.properties
+……………
+
+2. 使用 数据库+缓存 的操作，可以实时添加，需要配套的后台管理录入或编辑界面，比较灵活
+数据库 i18n表 字段信息 id，国家信息country，key，value，备注 等
+也可以在加个国家的字典表信息 id，国家中文名，locale编码（cn_ZH），方便页面录入
