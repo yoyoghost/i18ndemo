@@ -1,6 +1,7 @@
 package com.i18n.demo.controller;
 
 import com.i18n.demo.common.I18nConst;
+import com.i18n.demo.util.I18NUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,17 +32,13 @@ public class MyController {
     @Autowired
     private HttpServletRequest request;
 
-    /**
-     * 用来读取国际化的properties文件
-     * 只需在application.yml中增加读取的文件路径即可 spring.message.basename=***,**
-     * 多个用逗号分隔
-     */
+
     @Autowired
-    MessageSource messageSource;
+    I18NUtil i18NUtil;
 
     //@PostMapping("getMsg")
     @GetMapping("getMsg")
-    public String getMsg(String lang) {
+    public String getMsg() {
 
         Locale locale = RequestContextUtils.getLocale(request);
 
@@ -51,7 +48,13 @@ public class MyController {
          * 使用springboot自带的多语言国际化
          * 通过配置不同国家或语言的配置文件，根据浏览器的第一语言来获取 locale
          */
-        String msg = messageSource.getMessage(I18nConst.BUY_TIP, null, locale);
+        /**
+         * 用来读取国际化的properties文件
+         * 只需在application.yml中增加读取的文件路径即可 spring.message.basename=***,**
+         * 多个用逗号分隔
+         */
+        //String msg = messageSource.getMessage(I18nConst.BUY_TIP, null, locale);
+        String msg = i18NUtil.getMsg(I18nConst.Msg.LOGIN_ERROR, locale);
 
         return msg;
     }
@@ -65,5 +68,12 @@ public class MyController {
             locals.append(locale.toString()).append(",");
         }
         return locals.toString();
+    }
+
+    @GetMapping("getLocale")
+    public String getLocale() {
+        String lang = Locale.getDefault().getLanguage();
+        String country = Locale.getDefault().getCountry();
+        return lang+"_"+country;
     }
 }
