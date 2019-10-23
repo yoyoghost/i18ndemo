@@ -65,7 +65,7 @@ kettle
 kafka
 
 	启动服务
-	cd /Users/g2/soft/kafka_2.11-0.10.1.0/bin
+	cd /Users/g3/soft/kafka_2.11-0.10.1.0/bin
 	sh ./kafka-server-start.sh ../config/server.properties
 
 zk
@@ -82,7 +82,7 @@ zk
 docker
 
 	登录：
-	G2deMacBook-Air-2:~ g2$ docker login
+	G2deMacBook-Air-2:~ g3$ docker login
 	Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 	Username (434644128@qq.com): yoyoghost
 	Password:
@@ -101,9 +101,9 @@ docker
 	docker run --cap-add=SYS_PTRACE
 	docker exec -ti dms-warehouse bash
 
-bGy6Dg2kXa0kwIBb
+bGy6Dg3kXa0kwIBb
 
--- /Users/g2/Library/Containers/com.tencent.qq/Data/Library/Caches/Images
+-- /Users/g3/Library/Containers/com.tencent.qq/Data/Library/Caches/Images
 
 
 linux命令
@@ -124,4 +124,4 @@ mvn deploy:deploy-file -DgroupId=com.best -DartifactId=best-sdk -Dversion=1.0.0-
 
 -- 慢sql分析
 mysqldumpslow -s t -t 10 ~/dms-1-slow-5-30.log
-/Users/g2/soft/mysqlMonitor/mysqlsla-2.03
+/Users/g3/soft/mysqlMonitor/mysqlsla-2.03
