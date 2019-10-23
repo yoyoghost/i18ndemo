@@ -1,0 +1,127 @@
+maven打包
+
+	mvn clean package -Dmaven.test.skip=true
+
+文件夹修改权限
+
+	sudo chmod -R 777 data/
+
+项目启动参数 增加apollo
+
+	-Denv=dev -Ddev_meta=http://172.16.27.146:8080 -Dapp.id=gstore-contract.dev
+
+	-Denv=dev -Ddev_meta=http://172.16.27.146:8080 -Dapp.id=tmp-server.dev
+
+
+idea
+
+	全局搜索 shift+control+F
+	command+d 复制当前行
+	command+y 删除当前行
+	⌘⌥L command+option+L 格式化代码
+	⌘⌥O command+option+O 优化import
+	Command+o override 方法
+	command+N 打开类
+
+sublime
+
+	⌘⌃g 全选所有已选定的内容
+
+
+各种访问不了（刷新DNS）
+
+	sudo killall -HUP mDNSResponder
+
+Cookie
+
+SSO_IDT=
+eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkNjJhMjI5NC03ZGY5LTQ0MjYtOTNjNS0xNWFjYmZlZGEzYzIiLCJzdWIiOiI0OSIsImF1ZCI6InN5c2FkbWluIiwiaXNzIjoiMjYifQ.yWKheDWzwtHWbBEiej3RvA7CxHB4j1UtNir-OtH-sdg
+
+
+
+git 命令
+
+	git clone *****    // 拉取远程仓库的代码
+	git fetch origin   // 获取当前git下的所有更新，所有分支的更新，包括新建分支
+	git push origin [tagname] // push tag
+
+	git tag -d v1.0.1 // 删除tag
+	git tag -a v1.0.25
+	git push origin v1.0.25
+
+	-- 清除缓存
+	git rm -r --cached .
+	git add .
+	git commit -m 'update .gitignore'
+
+kettle
+
+	启动服务
+	sudo sh carte.sh 192.168.200.178 8081
+
+	启动编辑器
+	./spoon.sh
+
+kafka
+
+	启动服务
+	cd /Users/g2/soft/kafka_2.11-0.10.1.0/bin
+	sh ./kafka-server-start.sh ../config/server.properties
+
+zk
+
+	zk 启动
+
+		sh ./
+
+	zk 连接
+
+		sh ./zkCli.sh -server ***.cn:2181
+
+
+docker
+
+	登录：
+	G2deMacBook-Air-2:~ g2$ docker login
+	Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+	Username (434644128@qq.com): yoyoghost
+	Password:
+	Login Succeeded
+
+	进入镜像
+	sudo docker exec -it 4520177f0bd3 /bin/bash
+
+	进入镜像： docker run -it ****
+	退出镜像： exit
+
+	挂载磁盘
+	docker run -it -v /data/kettle:/date/kettle/test centos       （-v :前面是本地的路径  :后面是镜像里的路径  而且都要使用绝对路径。使用之前需要在 docker 的 preference 里面设置一下（MAC））
+
+	// jmap jstat
+	docker run --cap-add=SYS_PTRACE
+	docker exec -ti dms-warehouse bash
+
+bGy6Dg2kXa0kwIBb
+
+-- /Users/g2/Library/Containers/com.tencent.qq/Data/Library/Caches/Images
+
+
+linux命令
+
+scp -P 2621 sihongkai@lanproxy.*****.cn:/home/sihongkai/tests/dms-gateway.2018-12-23.log.zip ~/log.zip
+
+
+scp -P 2246 sihongkai@172.16.50.239:/data/web_log/java/dms-warehouse/dms-warehouse.2019-02-18.log.zip ~/log.zip
+
+scp -P 2246 sihongkai@172.16.120.97:/data/web_log/java/dms-warehouse/dms-warehouse.2019-02-18.log.zip ~/log.zip
+
+
+-- mycat
+PRAGMA journal_mode=WAL  增加日志
+
+-- storm_sdk.jar
+mvn deploy:deploy-file -DgroupId=com.best -DartifactId=best-sdk -Dversion=1.0.0-SNAPSHOT -Dpackaging=jar -Dfile=storm_sdk.jar -DrepositoryId=** -Durl=http://***
+
+-- 慢sql分析
+mysqldumpslow -s t -t 10 ~/dms-1-slow-5-30.log
+/Users/g2/soft/mysqlMonitor/mysqlsla-2.03
